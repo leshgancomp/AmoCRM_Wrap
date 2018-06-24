@@ -415,7 +415,7 @@ class AmoCRM
             $typeObj = "AmoCRM\\$className";
             $config = new Config();
             $typeForUrl = $config->{strtolower($className)};
-            $url = "api/v2/$typeForUrl?";
+            $url = "api/v2/".$typeForUrl['delete']."?";
             if (!empty($query)) {
                 $url .= "&query=$query";
             }
