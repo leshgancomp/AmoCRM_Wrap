@@ -26,9 +26,9 @@
 ```php
 <?php
 try {
-    $amo = new \DrillCoder\AmoCRM_Wrap\AmoCRM('test', 'test@test.ru', '011c2d7f862c688286b43ef552fb17f4');
+    $amo = new \leshgancomp\AmoCRM_Wrap\AmoCRM('test', 'test@test.ru', '011c2d7f862c688286b43ef552fb17f4');
     // work with Аmo api
-} catch (\DrillCoder\AmoCRM_Wrap\AmoWrapException $e) {
+} catch (\leshgancomp\AmoCRM_Wrap\AmoWrapException $e) {
     die($e->getMessage());
 }
 ?>
@@ -225,7 +225,7 @@ $companies - необязательный параметр, массив объ�
 ```php
 <?php
 try {
-    $amo = new \DrillCoder\AmoCRM_Wrap\AmoCRM('test', 'test@test.ru', '011c2d7f862c688286b43ef552fb17f4');
+    $amo = new \leshgancomp\AmoCRM_Wrap\AmoCRM('test', 'test@test.ru', '011c2d7f862c688286b43ef552fb17f4');
     $contacts =  $amo->searchContact('79998887766', 'test@test.ru'); //Ищем контакт по телефону и почте
     $contact = current($contacts); //Берём первый найденый контакт
     $contact->setName("{$contact->getName()} лучший") //Меняем имя дописывая в текущее строчку
@@ -235,7 +235,7 @@ try {
             ->setResponsibleUser('Пётр Иванович') //Меняем ответственного
             ->save() //Сохраняем все изменение на сервере црм
             ->addTask('Позвонить клиенту', 'Саша'); //Прикрепляем задачку, и назначаем ответственным за неё Сашу
-} catch (\DrillCoder\AmoCRM_Wrap\AmoWrapException $e) {
+} catch (\leshgancomp\AmoCRM_Wrap\AmoWrapException $e) {
     die($e->getMessage()); //Прерывем работу скрипта и выводим текст ошибки
 }
 ?>
@@ -245,20 +245,20 @@ try {
 ```php
 <?php
 try {
-    $amo = new \DrillCoder\AmoCRM_Wrap\AmoCRM('test', 'test@test.ru', '011c2d7f862c688286b43ef552fb17f4');
-    $contact = new \DrillCoder\AmoCRM_Wrap\Contact();
+    $amo = new \leshgancomp\AmoCRM_Wrap\AmoCRM('test', 'test@test.ru', '011c2d7f862c688286b43ef552fb17f4');
+    $contact = new \leshgancomp\AmoCRM_Wrap\Contact();
     $contact->setName('Петя')
             ->addPhone(79998887766); //Создаём контакт, который будет создан в црм после принятия заявки в неразобранном
-    $contact2 = new \DrillCoder\AmoCRM_Wrap\Contact();
+    $contact2 = new \leshgancomp\AmoCRM_Wrap\Contact();
     $contact2->setName('Ваня')
              ->addPhone(79998887755); //Создаём второй контакт
-    $lead = new \DrillCoder\AmoCRM_Wrap\Lead();
+    $lead = new \leshgancomp\AmoCRM_Wrap\Lead();
     $lead->setName('Тестовая сделка')
          ->setSale(2500); //Создаём сделку, которая будет создана в црм после принятия заявки в неразобранном
-    $unsorted = new \DrillCoder\AmoCRM_Wrap\Unsorted('Супер-Форма', $lead, array($contact, $contact2), 'Вторые продажи');
+    $unsorted = new \leshgancomp\AmoCRM_Wrap\Unsorted('Супер-Форма', $lead, array($contact, $contact2), 'Вторые продажи');
     $unsorted->addNote('Клиент сложный')
              ->save(); // Сохраняем всё в неразобранное в црм
-} catch (\DrillCoder\AmoCRM_Wrap\AmoWrapException $e) {
+} catch (\leshgancomp\AmoCRM_Wrap\AmoWrapException $e) {
     die($e->getMessage()); //Прерывем работу скрипта и выводим текст ошибки
 }
 ?>
@@ -279,8 +279,8 @@ $responsibleUserId = 'Александр';
 $comment = 'Срочно перезвонить!';
 
 try {
-    $amo = new \DrillCoder\AmoCRM_Wrap\AmoCRM('test', 'test@test.com', '8a66666666b3494179da07abc74bfd49');
-    $lead = new \DrillCoder\AmoCRM_Wrap\Lead();
+    $amo = new \leshgancomp\AmoCRM_Wrap\AmoCRM('test', 'test@test.com', '8a66666666b3494179da07abc74bfd49');
+    $lead = new \leshgancomp\AmoCRM_Wrap\Lead();
     $lead->setName("Заявка с формы '$form'")
          ->setCustomField('roistat', isset($_COOKIE['roistat_visit']) ? $_COOKIE['roistat_visit'] : null)
          ->setCustomField('roistat-marker', isset($_COOKIE['roistat_marker']) ? $_COOKIE['roistat_marker'] : 'Прямой визит')
@@ -297,14 +297,14 @@ try {
     if (!empty($contacts)) {
         $contact = current($contacts);
     } else {
-        $contact = new \DrillCoder\AmoCRM_Wrap\Contact();
+        $contact = new \leshgancomp\AmoCRM_Wrap\Contact();
         $contact->setName($name);
     }
     $contact->addPhone($phone)
             ->addEmail($email)
             ->addLead($lead)
             ->save();
-} catch (\DrillCoder\AmoCRM_Wrap\AmoWrapException $e) {
+} catch (\leshgancomp\AmoCRM_Wrap\AmoWrapException $e) {
     echo $e->getMessage();
 }?>
 ```

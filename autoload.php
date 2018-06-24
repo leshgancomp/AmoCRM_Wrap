@@ -2,7 +2,7 @@
 
 /**
  * Created by PhpStorm.
- * User: DrillCoder
+ * User: leshgancomp
  * Date: 07.04.18
  * Time: 20:36
  */
@@ -12,7 +12,7 @@ spl_autoload_register(
  * @param string $class
  */
     function ($class) {
-        $ns = 'DrillCoder\AmoCRM_Wrap';
+        $ns = 'leshgancomp\AmoCRM_Wrap';
         $prefixes = array(
             "{$ns}\\" => array(
                 __DIR__ . '/src',

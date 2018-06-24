@@ -1,13 +1,13 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: DrillCoder
+ * User: leshgancomp
  * Date: 12.09.17
  * Time: 10:47
  */
 
-namespace DrillCoder\AmoCRM_Wrap\Helpers;
-use DrillCoder\AmoCRM_Wrap\AmoWrapException;
+namespace leshgancomp\AmoCRM_Wrap\Helpers;
+use leshgancomp\AmoCRM_Wrap\AmoWrapException;
 
 /**
  * Class Info

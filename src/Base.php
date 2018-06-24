@@ -1,16 +1,16 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: DrillCoder
+ * User: leshgancomp
  * Date: 12.09.17
  * Time: 11:55
  */
 
-namespace DrillCoder\AmoCRM_Wrap;
+namespace leshgancomp\AmoCRM_Wrap;
 
-use DrillCoder\AmoCRM_Wrap\Helpers\Config;
-use DrillCoder\AmoCRM_Wrap\Helpers\CustomField;
-use DrillCoder\AmoCRM_Wrap\Helpers\Value;
+use leshgancomp\AmoCRM_Wrap\Helpers\Config;
+use leshgancomp\AmoCRM_Wrap\Helpers\CustomField;
+use leshgancomp\AmoCRM_Wrap\Helpers\Value;
 
 /**
  * Class Base

@@ -1,19 +1,23 @@
 {
-  "name": "drillcoder/amocrm_wrap",
+  "name": "leshgancomp/amocrm_wrap",
   "description": "Обёртка для простого взаимодействия с Api AmoCRM",
-  "version": "6.0.4",
+  "version": "1.0.0",
   "keywords": [
-    "drillcoder",
+    "leshgancomp",
     "amo",
     "amocrm",
     "crm",
     "wrap"
   ],
-  "homepage": "https://github.com/drillcoder/AmoCRM_Wrap",
+  "homepage": "https://github.com/leshgancomp/AmoCRM_Wrap",
   "authors": [
     {
       "name": "Dmitry Drill",
       "email": "nitrodrill@ya.ru"
+    },
+    {
+      "name": "Alexey Morilov",
+      "email": "web@exploit-it.ru"
     }
   ],
   "license": "MIT",
@@ -22,7 +26,7 @@
   },
   "autoload": {
     "psr-4": {
-      "DrillCoder\\AmoCRM_Wrap\\": "src/"
+      "leshgancomp\\AmoCRM_Wrap\\": "src/"
     }
   }
 }

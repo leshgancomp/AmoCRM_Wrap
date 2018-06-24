@@ -1,12 +1,12 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: DrillCoder
+ * User: leshgancomp
  * Date: 26.09.17
  * Time: 14:31
  */
 
-namespace DrillCoder\AmoCRM_Wrap;
+namespace leshgancomp\AmoCRM_Wrap;
 
 
 /**

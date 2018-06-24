@@ -2,15 +2,15 @@
 
 /**
  * Created by PhpStorm.
- * User: DrillCoder
+ * User: leshgancomp
  * Date: 21.07.17
  * Time: 17:11
  */
 
-namespace DrillCoder\AmoCRM_Wrap;
+namespace leshgancomp\AmoCRM_Wrap;
 
-use DrillCoder\AmoCRM_Wrap\Helpers\Config;
-use DrillCoder\AmoCRM_Wrap\Helpers\Info;
+use leshgancomp\AmoCRM_Wrap\Helpers\Config;
+use leshgancomp\AmoCRM_Wrap\Helpers\Info;
 
 /**
  * Class Amo

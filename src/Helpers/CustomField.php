@@ -1,15 +1,15 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: DrillCoder
+ * User: leshgancomp
  * Date: 08.09.17
  * Time: 16:50
  */
 
-namespace DrillCoder\AmoCRM_Wrap\Helpers;
+namespace leshgancomp\AmoCRM_Wrap\Helpers;
 
-use DrillCoder\AmoCRM_Wrap\AmoCRM;
-use DrillCoder\AmoCRM_Wrap\AmoWrapException;
+use leshgancomp\AmoCRM_Wrap\AmoCRM;
+use leshgancomp\AmoCRM_Wrap\AmoWrapException;
 
 /**
  * Class CustomField
