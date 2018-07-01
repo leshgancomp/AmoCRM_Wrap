@@ -412,7 +412,7 @@ class AmoCRM
                 break;
         }
         if (isset($className)) {
-            $typeObj = "AmoCRM\\$className";
+            $typeObj = "leshgancomp\\AmoCRM_Wrap\\$className";
             $config = new Config();
             $typeForUrl = $config->{strtolower($className)};
             $url = "api/v2/".$typeForUrl['delete']."?";
