@@ -79,6 +79,19 @@ class AmoCRM
             throw new AmoWrapException('Данные для авторизации не верны');
         }
     }
+    
+    protected static function waitASec() {
+        $now = microtime(true);
+        static $lastCheck = null;
+        if (null !== $lastCheck) {
+            $sleepTime = 1;
+            $lastRequest = $now - $lastCheck;
+            if ($lastRequest < $sleepTime) {
+                usleep(($sleepTime - $lastRequest) * 1000000);
+            }
+        }
+        $lastCheck = microtime(true);
+    }
 
     /**
      * @param string $url
@@ -128,6 +141,7 @@ class AmoCRM
             curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
             curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+            self::waitASec();
             $out = curl_exec($curl);
             curl_close($curl);
             $response = json_decode($out);
