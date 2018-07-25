@@ -106,6 +106,7 @@ class AmoCRM
         if (self::$authorization) {
             $url = 'https://' . self::$domain . '.amocrm.ru/' . $url;
             $isUnsorted = stripos($url, 'incoming_leads') !== false;
+            //TEST
             if ($isUnsorted) {
                 $url .= '?login=' . self::$userLogin . '&api_key=' . self::$userAPIKey;
             } else {
