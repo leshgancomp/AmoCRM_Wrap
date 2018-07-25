@@ -119,7 +119,9 @@ class AmoCRM
             curl_setopt($curl, CURLOPT_URL, $url);
             curl_setopt($curl, CURLOPT_HEADER, false);
             curl_setopt($curl, CURLOPT_USERAGENT, 'amoCRM-API-client/1.0');
-            curl_setopt($curl, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
+            //curl_setopt($curl, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
+            curl_setopt($curl,CURLOPT_SSL_VERIFYPEER,0);
+            curl_setopt($curl,CURLOPT_SSL_VERIFYHOST,0);
             $headers = array();
             if (!empty($data)) {
                 curl_setopt($curl, CURLOPT_POST, true);
