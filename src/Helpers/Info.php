@@ -118,6 +118,14 @@ class Info
         }
     }
 
+    public function __call($prop, $arguments) {
+        if (isset($this->$prop)) {
+            return $this->$prop;
+        } else {
+            throw new AmoWrapException('Параметр не найден');
+        }
+    }
+
     /**
      * @param $prop
      * @return mixed

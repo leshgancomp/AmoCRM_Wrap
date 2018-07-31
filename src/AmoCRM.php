@@ -79,6 +79,19 @@ class AmoCRM
             throw new AmoWrapException('Данные для авторизации не верны');
         }
     }
+    
+    protected static function waitASec() {
+        $now = microtime(true);
+        static $lastCheck = null;
+        if (null !== $lastCheck) {
+            $sleepTime = 1;
+            $lastRequest = $now - $lastCheck;
+            if ($lastRequest < $sleepTime) {
+                usleep(($sleepTime - $lastRequest) * 1000000);
+            }
+        }
+        $lastCheck = microtime(true);
+    }
 
     /**
      * @param string $url
@@ -93,6 +106,7 @@ class AmoCRM
         if (self::$authorization) {
             $url = 'https://' . self::$domain . '.amocrm.ru/' . $url;
             $isUnsorted = stripos($url, 'incoming_leads') !== false;
+            //TEST
             if ($isUnsorted) {
                 $url .= '?login=' . self::$userLogin . '&api_key=' . self::$userAPIKey;
             } else {
@@ -106,7 +120,9 @@ class AmoCRM
             curl_setopt($curl, CURLOPT_URL, $url);
             curl_setopt($curl, CURLOPT_HEADER, false);
             curl_setopt($curl, CURLOPT_USERAGENT, 'amoCRM-API-client/1.0');
-            curl_setopt($curl, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
+            //curl_setopt($curl, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
+            curl_setopt($curl,CURLOPT_SSL_VERIFYPEER,0);
+            curl_setopt($curl,CURLOPT_SSL_VERIFYHOST,0);
             $headers = array();
             if (!empty($data)) {
                 curl_setopt($curl, CURLOPT_POST, true);
@@ -128,6 +144,7 @@ class AmoCRM
             curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
             curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+            self::waitASec();
             $out = curl_exec($curl);
             curl_close($curl);
             $response = json_decode($out);
@@ -412,7 +429,7 @@ class AmoCRM
                 break;
         }
         if (isset($className)) {
-            $typeObj = "AmoCRM\\$className";
+            $typeObj = "leshgancomp\\AmoCRM_Wrap\\$className";
             $config = new Config();
             $typeForUrl = $config->{strtolower($className)};
             $url = "api/v2/".$typeForUrl['delete']."?";
